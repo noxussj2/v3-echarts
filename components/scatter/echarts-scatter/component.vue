@@ -87,6 +87,14 @@ const props = defineProps({
     symbolSize: {
         type: Number,
         default: 15
+    },
+
+    /**
+     * 散点尺寸
+     */
+    symbol: {
+        type: String,
+        default: 'circle' // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
     }
 })
 
@@ -106,6 +114,7 @@ onMounted(() => {
                 $data: props.data,
                 $seriesColor: props.color,
                 $symbolSize: props.symbolSize,
+                $symbol: props.symbol,
                 $instanceId: instanceId
             })
 

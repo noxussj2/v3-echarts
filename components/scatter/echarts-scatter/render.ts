@@ -3,7 +3,7 @@ import { extens } from '../../../core/echarts-extens'
 import { useStyle } from '../../../styles'
 import { colorToRgba } from '../../../utils/color'
 
-export default async ({ $dom, $opt, $data, $seriesColor, $symbolSize, $instanceId }: any) => {
+export default async ({ $dom, $opt, $data, $seriesColor, $symbolSize, $symbol, $instanceId }: any) => {
     const { $color, $grid, $tooltip, $vertical, $legend } = useStyle()
 
     const grid = { ...$grid }
@@ -23,7 +23,8 @@ export default async ({ $dom, $opt, $data, $seriesColor, $symbolSize, $instanceI
             type: 'scatter',
             name: item.name,
             data: item.data,
-            symbolSize: $symbolSize
+            symbolSize: $symbolSize,
+            symbol: $symbol
         })
     })
 

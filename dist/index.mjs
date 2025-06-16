@@ -50685,20 +50685,21 @@ const Cn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
       style: Rn({ height: t.height })
     }, null, 4));
   }
-}), Oct = async ({ $dom: r, $opt: t, $data: e, $seriesColor: n, $symbolSize: a, $instanceId: i }) => {
-  const { $color: o, $grid: s, $tooltip: l, $vertical: u, $legend: f } = Oa(), h = { ...s }, c = n || o.theme, v = [];
-  e.series.forEach((p, g) => {
-    v.push({
+}), Oct = async ({ $dom: r, $opt: t, $data: e, $seriesColor: n, $symbolSize: a, $symbol: i, $instanceId: o }) => {
+  const { $color: s, $grid: l, $tooltip: u, $vertical: f, $legend: h } = Oa(), c = { ...l }, v = n || s.theme, d = [];
+  e.series.forEach((g, y) => {
+    d.push({
       type: "scatter",
-      name: p.name,
-      data: p.data,
-      symbolSize: a
+      name: g.name,
+      data: g.data,
+      symbolSize: a,
+      symbol: i
     });
   });
-  const d = {
-    color: c,
+  const p = {
+    color: v,
     grid: {
-      ...h,
+      ...c,
       right: 5
     },
     tooltip: Object.assign(
@@ -50708,19 +50709,19 @@ const Cn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
           type: "cross"
         }
       },
-      l
+      u
     ),
-    legend: Object.assign({}, f),
-    xAxis: { ...u.xAxis, type: "value" },
+    legend: Object.assign({}, h),
+    xAxis: { ...f.xAxis, type: "value" },
     yAxis: [
       {
-        ...u.yAxis,
+        ...f.yAxis,
         name: ""
       }
     ],
-    series: v
+    series: d
   };
-  return ve.render(r, Cn(t, d), i);
+  return ve.render(r, Cn(t, p), o);
 }, qct = /* @__PURE__ */ Dn({
   __name: "component",
   props: {
@@ -50791,6 +50792,14 @@ const Cn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
     symbolSize: {
       type: Number,
       default: 15
+    },
+    /**
+     * 散点尺寸
+     */
+    symbol: {
+      type: String,
+      default: "circle"
+      // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
     }
   },
   emits: ["click"],
@@ -50808,6 +50817,7 @@ const Cn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
             $data: n.data,
             $seriesColor: n.color,
             $symbolSize: n.symbolSize,
+            $symbol: n.symbol,
             $instanceId: o
           });
           i = s.instance, o = s.instanceId, i.off("click"), i.on("click", (l) => {
