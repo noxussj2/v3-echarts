@@ -3,18 +3,20 @@ import { v4 as uuidv4 } from 'uuid'
 
 class Echarts {
     loaded: object
+    observers: object
 
     constructor() {
         this.loaded = {}
+        this.observers = {}
 
         // setInterval(() => {
         //     console.log('this.loaded', this.loaded)
         // }, 1000 * 5)
 
-        window.onresize = () => {
-            this.resize()
-            console.log('resize')
-        }
+        // window.onresize = () => {
+        //     this.resize()
+        //     console.log('resize')
+        // }
     }
 
     /**
@@ -40,6 +42,15 @@ class Echarts {
 
                     this.loaded[uuid] = instance
 
+                    /**
+                     * dom 容器监听器
+                     */
+                    this.observers[uuid] = new ResizeObserver(() => {
+                        instance.resize()
+                    })
+
+                    this.observers[uuid].observe(dom.value)
+
                     resolve({ instance, instanceId: uuid })
                 }
             }, 0)
@@ -49,7 +60,7 @@ class Echarts {
     /**
      * 图表重载
      */
-    resize(time: number) {
+    resize(time = 0) {
         if (!time || time === 0) {
             for (const key in this.loaded) {
                 this.loaded[key].resize()
@@ -90,8 +101,13 @@ class Echarts {
      * 销毁图表
      */
     destroy(instanceId: string) {
+        // 删除实例
         this.loaded[instanceId].dispose()
         delete this.loaded[instanceId]
+
+        // 删除 dom 监听器
+        this.observers[instanceId].disconnect()
+        delete this.observers[instanceId]
     }
 }
 
