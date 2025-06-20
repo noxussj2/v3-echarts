@@ -50840,7 +50840,7 @@ const sn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
     }, null, 4));
   }
 }), kct = async ({ $dom: r, $opt: t, $data: e, $instanceId: n, $seriesColor: a }) => {
-  const { $color: i, $grid: o, $tooltip: s, $vertical: l } = aa(), u = { ...o }, f = a || i.theme.slice(0, 2), h = {
+  const { $color: i, $grid: o, $tooltip: s, $vertical: l } = aa(), u = { ...o }, f = a || i.theme, h = {
     color: f,
     grid: {
       ...u,
@@ -50870,7 +50870,7 @@ const sn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
       orient: "horizontal",
       right: 0,
       top: 0,
-      color: f,
+      color: [f[1], f[0]],
       itemWidth: 10,
       itemHeight: 140,
       textStyle: {
