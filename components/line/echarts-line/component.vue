@@ -1,5 +1,5 @@
 <template>
-    <div ref="echarts" class="echarts" :style="{ width: props.width, height: props.height }" :key="props.height" />
+    <div ref="echarts" class="echarts" :style="{ width: props.width, height: props.height }" />
 </template>
 
 <script lang="ts" setup>
@@ -9,7 +9,6 @@ import { echartsFlush } from '../../../styles'
 import echartsInstance from '../../../utils/echarts-register'
 
 const props = defineProps({
-
     /**
      * 用户配置项（继承已有配置，非必要时候勿用）
      */

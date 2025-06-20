@@ -1,5 +1,5 @@
 <template>
-    <div ref="echarts" class="echarts" :style="{ width: props.width, height: props.height }" :key="props.height" />
+    <div ref="echarts" class="echarts" :style="{ width: props.width, height: props.height }" />
 </template>
 
 <script lang="ts" setup>

@@ -49467,8 +49467,7 @@ const sn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
       ref_key: "echarts",
       ref: e,
       class: "echarts",
-      style: dn({ width: t.width, height: t.height }),
-      key: t.height
+      style: dn({ width: t.width, height: t.height })
     }, null, 4));
   }
 }), Cct = async ({ $dom: r, $opt: t, $data: e, $seriesColor: n, $barWidth: a, $stack: i, $radius: o, $singleColor: s, $showBackground: l, $label: u, $instanceId: f }) => {
@@ -50082,8 +50081,7 @@ const sn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
       ref_key: "echarts",
       ref: e,
       class: "echarts",
-      style: dn({ width: t.width, height: t.height }),
-      key: t.height
+      style: dn({ width: t.width, height: t.height })
     }, null, 4));
   }
 }), Lct = async ({ $dom: r, $opt: t, $data: e, $seriesColor: n, $radius: a, $label: i, $center: o, $legend: s, $roseType: l, $carousel: u, $instanceId: f }) => {
@@ -50319,8 +50317,7 @@ const sn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
       ref_key: "echarts",
       ref: a,
       class: "echarts",
-      style: dn({ width: n.width, height: n.height }),
-      key: n.height
+      style: dn({ width: n.width, height: n.height })
     }, null, 4));
   }
 }), Ect = async ({ $dom: r, $opt: t, $json: e, $markers: n, $icon: a, $regions: i, $instanceId: o }) => {
@@ -50835,8 +50832,7 @@ const sn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
       ref_key: "echarts",
       ref: a,
       class: "echarts",
-      style: dn({ width: n.width, height: n.height }),
-      key: n.height
+      style: dn({ width: n.width, height: n.height })
     }, null, 4));
   }
 }), kct = async ({ $dom: r, $opt: t, $data: e, $instanceId: n, $seriesColor: a }) => {
@@ -51139,8 +51135,7 @@ const sn = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
       ref_key: "echarts",
       ref: a,
       class: "echarts",
-      style: dn({ width: n.width, height: n.height }),
-      key: n.height
+      style: dn({ width: n.width, height: n.height })
     }, null, 4));
   }
 });
