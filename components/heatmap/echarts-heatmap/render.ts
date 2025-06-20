@@ -10,7 +10,7 @@ export default async ({ $dom, $opt, $data, $instanceId, $seriesColor }: any) => 
     /**
      * 过滤主题色
      */
-    const color = $seriesColor || $color.theme.slice(0, 2)
+    const color = $seriesColor || $color.theme
 
     /**
      * 导出配置项
@@ -45,7 +45,7 @@ export default async ({ $dom, $opt, $data, $instanceId, $seriesColor }: any) => 
             orient: 'horizontal',
             right: 0,
             top: 0,
-            color: color,
+            color: [color[1], color[0]],
             itemWidth: 10,
             itemHeight: 140,
             textStyle: {
