@@ -279,7 +279,7 @@ if (typeof window !== 'undefined') {
     };
 }
 
-export const useStyle = () => {
+export const useStyle: any = () => {
     if (typeof window !== 'undefined') {
         return window.$v3echarts;
     }
