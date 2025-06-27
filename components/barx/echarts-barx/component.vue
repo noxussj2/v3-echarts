@@ -6,7 +6,7 @@
 import { onMounted, ref, watch, onUnmounted } from 'vue'
 import render from './render'
 import { echartsFlush } from '../../../styles'
-import echartsInstance from "../../../utils/echarts-register"
+import echartsInstance from '../../../utils/echarts-register'
 
 interface EmitsType {
     (e: 'click', value: any): void
@@ -184,6 +184,8 @@ const props = defineProps({
         default: 1
     }
 })
+
+console.log('props.height', props.height)
 
 const echarts = ref<null>(null)
 let instance: any = null

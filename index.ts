@@ -14,6 +14,7 @@ import EchartsMap from './components/map/echarts-map/component.vue'
 import EchartsPolar from './components/polar/echarts-polar/component.vue'
 import EchartsScatter from './components/scatter/echarts-scatter/component.vue'
 import EchartsHeatmap from './components/heatmap/echarts-heatmap/component.vue'
+import EchartsRadar from './components/radar/echarts-radar/component.vue'
 
 export {
     loadStyle,
@@ -29,5 +30,6 @@ export {
     EchartsMap,
     EchartsPolar,
     EchartsScatter,
-    EchartsHeatmap
+    EchartsHeatmap,
+    EchartsRadar
 }
