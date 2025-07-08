@@ -124,7 +124,7 @@ const props = defineProps({
      * 可视区域工具颜色
      */
     dataZoomColor: {
-        type: Boolean,
+        type: String,
         default: null
     },
 

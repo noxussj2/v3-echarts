@@ -48810,7 +48810,7 @@ const xr = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
      * 可视区域工具颜色
      */
     dataZoomColor: {
-      type: Boolean,
+      type: String,
       default: null
     },
     /**
