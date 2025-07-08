@@ -25,7 +25,6 @@ export default async ({
 }: any) => {
     const { $color, $grid, $tooltip, $vertical, $legend } = useStyle()
 
-
     const grid = { ...$grid }
 
     /**
@@ -192,13 +191,13 @@ export default async ({
                         color: _color
                     }
                 },
-                borderColor: colorToRgba(_color, 0.5),
+                borderColor: colorToRgba(_color, 0.2),
                 handleStyle: {
                     color: 'transparent',
-                    borderColor: _color
+                    borderColor: colorToRgba(_color, 0.5)
                 },
                 moveHandleSize: 0,
-                fillerColor: colorToRgba(_color, 0.2),
+                fillerColor: colorToRgba(_color, 0.1),
                 labelFormatter: () => '',
                 height: 25,
                 bottom: 10
