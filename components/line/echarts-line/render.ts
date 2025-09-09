@@ -35,6 +35,7 @@ export default async ({
         const data: any = []
 
         item.data.forEach((x: any, i: number) => {
+
             /**
              * 常规颜色
              */
@@ -168,10 +169,7 @@ export default async ({
         dataZoom,
         tooltip: Object.assign(
             {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
-                }
+                trigger: 'axis'
             },
             $tooltip
         ),

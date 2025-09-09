@@ -32,6 +32,8 @@ function _extens (FirstOBJ: any, SecondOBJ: any) {
 
     assign(newOBJ, FirstOBJ, filterKeys) // 会直接改变第一项
 
+    console.log('newOBJ', newOBJ)
+
     return newOBJ
 }
 

@@ -4,7 +4,11 @@ import { type } from './dfs-deep-copy'
  * 对象多层合并
  */
 const assign = (target: any = {}, sources: any = {}, filterKeys: any = []) => {
-    const obj = target
+    let obj = target
+
+    if (type(target) === 'array' && type(sources) === 'object') {
+        obj = obj[0]
+    }
 
     /**
      * 如果其中有一个不是对象、数组，则返回
@@ -27,7 +31,8 @@ const assign = (target: any = {}, sources: any = {}, filterKeys: any = []) => {
             obj[key] = sources[key]
         }
     }
-    return obj
+
+    return target
 }
 
 export default assign

@@ -1,6 +1,7 @@
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const $color = {
+
     /**
      * 主题色-深色模式
      */
@@ -49,10 +50,11 @@ const $color = {
     /**
      * 数据文字颜色
      */
-    seriesLabel: 'rgba(255, 255, 255, 1)',
-};
+    seriesLabel: 'rgba(255, 255, 255, 1)'
+}
 
 const $fontSize = {
+
     /**
      * 标题/副标题
      */
@@ -81,13 +83,14 @@ const $fontSize = {
     /**
      * 图例标签
      */
-    legendLabel: 12,
-};
+    legendLabel: 12
+}
 
 /**
  * 容器内边距
  */
 const $grid = {
+
     /**
      * 上
      */
@@ -111,13 +114,14 @@ const $grid = {
     /**
      * grid 区域是否包含坐标轴的刻度标签
      */
-    containLabel: true,
-};
+    containLabel: true
+}
 
 /**
  * 提示框风格
  */
 const $tooltip = {
+
     /**
      * 背景色
      */
@@ -137,14 +141,15 @@ const $tooltip = {
      * 文字样式
      */
     textStyle: {
-        color: 'rgba(48, 49, 51, 1)',
-    },
-};
+        color: 'rgba(48, 49, 51, 1)'
+    }
+}
 
 /**
  * 图例风格
  */
 const $legend = {
+
     /**
      * 控制图例默认是否显示
      */
@@ -185,9 +190,9 @@ const $legend = {
      */
     textStyle: {
         color: '#fff',
-        fontSize: $fontSize.legendLabel,
-    },
-};
+        fontSize: $fontSize.legendLabel
+    }
+}
 
 /**
  * 纵向坐标轴风格
@@ -196,47 +201,51 @@ const $vertical = {
     xAxis: {
         type: 'category',
         axisTick: {
-            show: false,
+            show: false
+        },
+        nameTextStyle: {
+            color: $color.xAxisLabel,
+            fontSize: $fontSize.xAxisName
         },
         axisLabel: {
             color: $color.xAxisLabel,
-            fontSize: $fontSize.xAxisLabel,
+            fontSize: $fontSize.xAxisLabel
         },
         axisLine: {
             lineStyle: {
-                color: $color.xAxisLine,
-            },
+                color: $color.xAxisLine
+            }
         },
         splitLine: {
             lineStyle: {
-                color: $color.xSplitLine,
-            },
+                color: $color.xSplitLine
+            }
         },
-        boundaryGap: true,
+        boundaryGap: true
     },
     yAxis: {
         type: 'value',
         nameTextStyle: {
             color: $color.yAxisLabel,
-            fontSize: $fontSize.yAxisName,
+            fontSize: $fontSize.yAxisName
         },
         axisLabel: {
             color: $color.yAxisLabel,
-            fontSize: $fontSize.yAxisLabel,
+            fontSize: $fontSize.yAxisLabel
         },
         axisLine: {
             show: false,
             lineStyle: {
-                color: $color.yAxisLine,
-            },
+                color: $color.yAxisLine
+            }
         },
         splitLine: {
             lineStyle: {
-                color: $color.ySplitLine,
-            },
-        },
-    },
-};
+                color: $color.ySplitLine
+            }
+        }
+    }
+}
 
 /**
  * 横向坐标轴风格
@@ -247,26 +256,26 @@ const $horizontal = {
         axisLabel: {
             show: false,
             color: $color.xAxisLabel,
-            fontSize: $fontSize.xAxisLabel,
+            fontSize: $fontSize.xAxisLabel
         },
         splitLine: {
-            show: false,
-        },
+            show: false
+        }
     },
     yAxis: {
         type: 'category',
         axisTick: {
-            show: false,
+            show: false
         },
         axisLabel: {
             color: $color.yAxisLabel,
-            fontSize: $fontSize.yAxisLabel,
+            fontSize: $fontSize.yAxisLabel
         },
         axisLine: {
-            show: false,
-        },
-    },
-};
+            show: false
+        }
+    }
+}
 
 if (typeof window !== 'undefined') {
     window.$v3echarts = {
@@ -275,27 +284,27 @@ if (typeof window !== 'undefined') {
         $tooltip,
         $legend,
         $vertical,
-        $horizontal,
-    };
+        $horizontal
+    }
 }
 
 export const useStyle: any = () => {
     if (typeof window !== 'undefined') {
-        return window.$v3echarts;
+        return window.$v3echarts
     }
-};
+}
 
-export const echartsFlush = ref(0);
+export const echartsFlush = ref(0)
 export const loadStyle = (style: any, render = false) => {
     if (typeof window !== 'undefined') {
-        window.$v3echarts = style;
+        window.$v3echarts = style
 
         if (render) {
-            echartsFlush.value++;
-            console.log('echartsFlush.value', echartsFlush.value);
+            echartsFlush.value++
+            console.log('echartsFlush.value', echartsFlush.value)
         }
     }
-};
+}
 
 declare global {
     interface Window {
