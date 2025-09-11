@@ -48531,7 +48531,7 @@ function _ct(r, t) {
 }
 function xct(r, t) {
   const e = ["data", "radius", "center", "color"], n = E.cloneDeep(t);
-  return Ek(n, r, e), console.log("newOBJ", n), n;
+  return Ek(n, r, e), n;
 }
 const xr = (r, t) => (_ct(r, t), xct(r, t)), Sct = (r, t = 1) => {
   const e = parseInt(r.slice(1, 3), 16), n = parseInt(r.slice(3, 5), 16), a = parseInt(r.slice(5, 7), 16);
