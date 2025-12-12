@@ -35,7 +35,6 @@ export default async ({
         const data: any = []
 
         item.data.forEach((x: any, i: number) => {
-
             /**
              * 常规颜色
              */
@@ -174,7 +173,21 @@ export default async ({
             $tooltip
         ),
         legend: Object.assign({}, $legend),
-        xAxis: Object.assign({ data: $data.axis }, $vertical.xAxis),
+        xAxis: [
+            Object.assign({ data: $data.axis }, $vertical.xAxis),
+            {
+                ...$vertical.xAxis,
+                axisLabel: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: false
+                }
+            }
+        ],
         yAxis: [
             {
                 ...$vertical.yAxis,

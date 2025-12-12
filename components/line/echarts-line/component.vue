@@ -111,6 +111,14 @@ const props = defineProps({
     interval: {
         type: Number,
         default: 5
+    },
+
+    /**
+     * 获取实例
+     */
+    instance: {
+        type: Function,
+        default: () => null
     }
 })
 
@@ -137,6 +145,10 @@ onMounted(() => {
                     $areaGradient: props.areaGradient,
                     $instanceId: instanceId
                 })
+
+                if(!instanceId){
+                    props.instance(res.instance)
+                }
 
                 instance = res.instance
                 instanceId = res.instanceId

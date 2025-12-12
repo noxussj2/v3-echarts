@@ -69,25 +69,11 @@
         ],
         "description": "noxussj propsType"
     },
-    "noxussj emits": {
-        "prefix": "emits",
+    "noxussj Emit": {
+        "prefix": "emit 🌟",
         "body": [
-            "import { computed } from 'vue'",
-            "",
-            "interface EmitsType {",
-            "    (e: 'update:modelValue', value: String): void",
-            "}",
-            "",
-            "const emit = defineEmits<EmitsType>()",
-            "",
-            "const value = computed({",
-            "    get: () => props.modelValue,",
-            "    set: (val) => {",
-            "        emit('update:modelValue', val)",
-            "    }",
-            "})",
-
+            "const emit = defineEmits(['${1:update:modelValue}'])",
         ],
-        "description": "noxussj emits"
-    }
+        "description": "noxussj Emit"
+    },
 }

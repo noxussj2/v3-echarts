@@ -1,6 +1,7 @@
 import { loadStyle } from './styles/index'
-import "./styles/index.css"
+import './styles/index.css'
 
+import * as echarts from 'echarts'
 import _echarts from './utils/echarts-register'
 import EchartsBase from './components/base/echarts-base/component.vue'
 import EchartsBarx from './components/barx/echarts-barx/component.vue'
@@ -16,10 +17,14 @@ import EchartsScatter from './components/scatter/echarts-scatter/component.vue'
 import EchartsHeatmap from './components/heatmap/echarts-heatmap/component.vue'
 import EchartsRadar from './components/radar/echarts-radar/component.vue'
 import EchartsCandlestick from './components/candlestick/echarts-candlestick/component.vue'
+import { generateWindBarbSVG } from './utils/draw-wind-svg'
+
+console.log('v1.5.6')
 
 export {
     loadStyle,
     _echarts,
+    echarts,
     EchartsBase,
     EchartsBarx,
     EchartsBarxBattery,
@@ -33,5 +38,6 @@ export {
     EchartsScatter,
     EchartsHeatmap,
     EchartsRadar,
-    EchartsCandlestick
+    EchartsCandlestick,
+    generateWindBarbSVG
 }

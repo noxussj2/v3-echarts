@@ -4,7 +4,7 @@ import assign from '../utils/object-assign'
 /**
  * 模式检测
  */
-function _modeCheck (FirstOBJ: any, SecondOBJ: any) {
+function _modeCheck(FirstOBJ: any, SecondOBJ: any) {
     if (FirstOBJ.baseOption && !SecondOBJ.baseOption) {
         console.error('提示', 'option两者格式不符合')
     }
@@ -25,7 +25,7 @@ function _modeCheck (FirstOBJ: any, SecondOBJ: any) {
 /**
  * 继承
  */
-function _extens (FirstOBJ: any, SecondOBJ: any) {
+function _extens(FirstOBJ: any, SecondOBJ: any) {
     const filterKeys = ['data', 'radius', 'center', 'color'] // 过滤keys
 
     const newOBJ = _.cloneDeep(SecondOBJ)
@@ -41,7 +41,7 @@ function _extens (FirstOBJ: any, SecondOBJ: any) {
 const extens = (FirstOBJ: any, SecondOBJ: any) => {
     _modeCheck(FirstOBJ, SecondOBJ)
 
-    const option = _extens(FirstOBJ, SecondOBJ)
+    const option = _extens(_.cloneDeep(FirstOBJ), _.cloneDeep(SecondOBJ))
 
     return option
 }
