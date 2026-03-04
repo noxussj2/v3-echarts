@@ -50351,24 +50351,25 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
   $carousel: l,
   $smooth: u,
   $areaGradient: f,
-  $instanceId: c
+  $symbol: c,
+  $instanceId: h
 }) => {
-  const { $color: h, $grid: v, $tooltip: d, $vertical: p, $legend: g } = Sn(), y = { ...v }, m = n || h.theme, _ = [], x = [];
-  e.series.forEach((w, A) => {
-    const T = [];
-    w.data.forEach((I, L) => {
-      const P = a ? m[L] : m[A];
-      T.push({
-        value: I,
+  const { $color: v, $grid: d, $tooltip: p, $vertical: g, $legend: y } = Sn(), m = { ...d }, _ = n || v.theme, x = [], b = [];
+  e.series.forEach((A, T) => {
+    const C = [];
+    A.data.forEach((L, P) => {
+      const R = a ? _[P] : _[T];
+      C.push({
+        value: L,
         itemStyle: {
-          color: P
+          color: R
         }
       });
     });
-    let C = "rgba(0, 0, 0, 0)";
+    let M = "rgba(0, 0, 0, 0)";
     if (f) {
-      const I = zr(m[A], 1), L = zr(m[A], 0);
-      C = {
+      const L = zr(_[T], 1), P = zr(_[T], 0);
+      M = {
         type: "linear",
         x: 0,
         y: 0,
@@ -50377,29 +50378,30 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
         colorStops: [
           {
             offset: 0,
-            color: I
+            color: L
           },
           {
             offset: 1,
-            color: L
+            color: P
           }
         ]
       };
     }
-    x.push({
+    b.push({
       type: "line",
-      name: w.name,
-      data: T,
+      name: A.name,
+      data: C,
       smooth: u,
+      symbol: c,
       areaStyle: {
-        color: C
+        color: M
       }
     });
-    const M = w.unit ? `（${w.unit}）` : "";
-    _.push(M);
+    const I = A.unit ? `（${A.unit}）` : "";
+    x.push(I);
   });
-  let b = [];
-  if (l && (b = [
+  let S = [];
+  if (l && (S = [
     {
       show: !1,
       type: "slider",
@@ -50410,8 +50412,8 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
       show: !1
     }
   ]), i) {
-    const w = s || h.theme[0];
-    b = [
+    const A = s || v.theme[0];
+    S = [
       {
         show: !0,
         type: "slider",
@@ -50425,7 +50427,7 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
             color: "transparent"
           },
           areaStyle: {
-            color: w
+            color: A
           }
         },
         selectedDataBackground: {
@@ -50433,16 +50435,16 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
             color: "transparent"
           },
           areaStyle: {
-            color: w
+            color: A
           }
         },
-        borderColor: zr(w, 0.5),
+        borderColor: zr(A, 0.5),
         handleStyle: {
           color: "transparent",
-          borderColor: w
+          borderColor: A
         },
         moveHandleSize: 0,
-        fillerColor: zr(w, 0.2),
+        fillerColor: zr(A, 0.2),
         labelFormatter: () => "",
         height: 25,
         bottom: 10
@@ -50454,23 +50456,23 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
         moveOnMouseMove: !1,
         moveOnMouseWheel: !1
       }
-    ], y.bottom = 50;
+    ], m.bottom = 50;
   }
-  const S = {
-    color: m,
-    grid: y,
-    dataZoom: b,
+  const w = {
+    color: _,
+    grid: m,
+    dataZoom: S,
     tooltip: Object.assign(
       {
         trigger: "axis"
       },
-      d
+      p
     ),
-    legend: Object.assign({}, g),
+    legend: Object.assign({}, y),
     xAxis: [
-      Object.assign({ data: e.axis }, p.xAxis),
+      Object.assign({ data: e.axis }, g.xAxis),
       {
-        ...p.xAxis,
+        ...g.xAxis,
         axisLabel: {
           show: !1
         },
@@ -50484,16 +50486,16 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
     ],
     yAxis: [
       {
-        ...p.yAxis,
-        name: _[0]
+        ...g.yAxis,
+        name: x[0]
       },
       {
-        ...p.yAxis,
+        ...g.yAxis,
         show: !1,
-        name: _[1],
+        name: x[1],
         axisLabel: {
           show: !1,
-          color: h.yAxisLabel,
+          color: v.yAxisLabel,
           formatter: "{value} %"
         },
         splitLine: {
@@ -50501,9 +50503,9 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
         }
       }
     ],
-    series: x
+    series: b
   };
-  return Qt.render(r, Tr(t, S), c);
+  return Qt.render(r, Tr(t, w), h);
 }, Ldt = /* @__PURE__ */ Cr({
   __name: "component",
   props: {
@@ -50605,6 +50607,13 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
     instance: {
       type: Function,
       default: () => null
+    },
+    /**
+     * symbol
+     */
+    symbol: {
+      type: Boolean,
+      default: !1
     }
   },
   setup(r) {
@@ -50626,7 +50635,8 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
               $carousel: t.carousel,
               $smooth: t.smooth,
               $areaGradient: t.areaGradient,
-              $instanceId: a
+              $instanceId: a,
+              $symbol: t.symbol
             });
             if (a || t.instance(o.instance), n = o.instance, a = o.instanceId, clearTimeout(i), t.carousel) {
               let s = 0, l = t.dataZoomNumber - 1;
@@ -51983,10 +51993,8 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
       // 短风矢线的水平投影长度
       barbAngleDeg: 15,
       // 风矢线与主线的夹角 (度)
-      triangleSideLength: 16,
+      triangleSideLength: 16
       // 三角形的边长 (用于计算 dx)
-      triangleTipOffset: 25
-      // 优化: 三角形沿主线占据的长度（垂直投影）
     }
   }, a = {
     value: {
@@ -52033,9 +52041,20 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
     M += P(c);
   for (let O = 0; O < b; O++)
     M += P(h);
-  return { svg: `<svg width="${w}" height="${w}" viewBox="0 0 ${w} ${w}" xmlns="http://www.w3.org/2000/svg">
+  return {
+    svg: `<svg width="${w}" height="${w}" viewBox="0 0 ${w} ${w}" xmlns="http://www.w3.org/2000/svg">
         <g transform="rotate(${r}, ${A}, ${T})">${M}</g>
-        </svg>`, size: w };
+        </svg>`,
+    size: w,
+    original: {
+      size: w,
+      dirDeg: r,
+      cx: A,
+      cy: T,
+      mainLine: C,
+      svgContent: M
+    }
+  };
 };
 console.log("v1.5.6");
 export {

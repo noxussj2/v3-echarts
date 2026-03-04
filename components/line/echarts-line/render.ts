@@ -15,6 +15,7 @@ export default async ({
     $carousel,
     $smooth,
     $areaGradient,
+    $symbol,
     $instanceId
 }: any) => {
     const { $color, $grid, $tooltip, $vertical, $legend } = useStyle()
@@ -35,6 +36,7 @@ export default async ({
         const data: any = []
 
         item.data.forEach((x: any, i: number) => {
+
             /**
              * 常规颜色
              */
@@ -80,6 +82,7 @@ export default async ({
             name: item.name,
             data,
             smooth: $smooth,
+            symbol: $symbol,
             areaStyle: {
                 color: gradientColor
             }

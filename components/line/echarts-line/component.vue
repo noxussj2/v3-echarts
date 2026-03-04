@@ -3,12 +3,13 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, watch, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import render from './render'
 import { echartsFlush } from '../../../styles'
 import echartsInstance from '../../../utils/echarts-register'
 
 const props = defineProps({
+
     /**
      * 用户配置项（继承已有配置，非必要时候勿用）
      */
@@ -119,6 +120,14 @@ const props = defineProps({
     instance: {
         type: Function,
         default: () => null
+    },
+
+    /**
+     * symbol
+     */
+    symbol: {
+        type: Boolean,
+        default: false
     }
 })
 
@@ -143,10 +152,11 @@ onMounted(() => {
                     $carousel: props.carousel,
                     $smooth: props.smooth,
                     $areaGradient: props.areaGradient,
-                    $instanceId: instanceId
+                    $instanceId: instanceId,
+                    $symbol: props.symbol
                 })
 
-                if(!instanceId){
+                if (!instanceId) {
                     props.instance(res.instance)
                 }
 
