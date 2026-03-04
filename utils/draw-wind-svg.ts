@@ -18,8 +18,7 @@ export const generateWindBarbSVG = (dirDeg, speed, options = {}) => {
             barbLongWidth: 16, // 长风矢线的水平投影长度
             barbShortWidth: 8, // 短风矢线的水平投影长度
             barbAngleDeg: 15, // 风矢线与主线的夹角 (度)
-            triangleSideLength: 16, // 三角形的边长 (用于计算 dx)
-            triangleTipOffset: 25 // 优化: 三角形沿主线占据的长度（垂直投影）
+            triangleSideLength: 16 // 三角形的边长 (用于计算 dx)
         }
     }
 
@@ -129,5 +128,16 @@ export const generateWindBarbSVG = (dirDeg, speed, options = {}) => {
         <g transform="rotate(${dirDeg}, ${cx}, ${cy})">${svgContent}</g>
         </svg>`
 
-    return { svg, size }
+    return {
+        svg,
+        size,
+        original: {
+            size,
+            dirDeg,
+            cx,
+            cy,
+            mainLine,
+            svgContent
+        }
+    }
 }

@@ -1,6 +1,6 @@
 {
     "name": "v3-echarts",
-    "version": "1.5.6",
+    "version": "1.5.7",
     "description": "v3-echarts 开箱即用的图表组件库",
     "main": "./dist/index.mjs",
     "author": "noxussj2",
@@ -14,12 +14,6 @@
     "scripts": {
         "build": "vite build",
         "postbuild": "npm publish"
-    },
-    "exports": {
-        ".": {
-            "development": "./index.ts",
-            "import": "./dist/index.mjs"
-        }
     },
     "files": [
         "dist"
