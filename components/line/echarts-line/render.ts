@@ -77,16 +77,21 @@ export default async ({
             }
         }
 
-        series.push({
+        const x: any = {
             type: 'line',
             name: item.name,
             data,
             smooth: $smooth,
-            symbol: $symbol,
             areaStyle: {
                 color: gradientColor
             }
-        })
+        }
+
+        if ($symbol === false) {
+            x.symbol = 'none'
+        }
+
+        series.push(x)
 
         const unit = item.unit ? `（${item.unit}）` : ''
         yAxisNames.push(unit)
