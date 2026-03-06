@@ -16,6 +16,7 @@ export default async ({
     $smooth,
     $areaGradient,
     $symbol,
+    $focus,
     $instanceId
 }: any) => {
     const { $color, $grid, $tooltip, $vertical, $legend } = useStyle()
@@ -42,11 +43,13 @@ export default async ({
              */
             const _color = $singleColor ? color[i] : color[index]
 
+            const itemStyle: any = {
+                color: _color
+            }
+
             data.push({
                 value: x,
-                itemStyle: {
-                    color: _color
-                }
+                itemStyle
             })
         })
 
@@ -84,6 +87,12 @@ export default async ({
             smooth: $smooth,
             areaStyle: {
                 color: gradientColor
+            }
+        }
+
+        if ($focus === true) {
+            x.emphasis = {
+                focus: 'series'
             }
         }
 
@@ -217,6 +226,8 @@ export default async ({
         ],
         series
     }
+
+    console.log(555, options)
 
     /**
      * 继承配置项后渲染图表

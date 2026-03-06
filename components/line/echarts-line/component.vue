@@ -128,6 +128,14 @@ const props = defineProps({
     symbol: {
         type: Boolean,
         default: false
+    },
+
+    /**
+     * focus
+     */
+    focus: {
+        type: Boolean,
+        default: false
     }
 })
 
@@ -153,7 +161,8 @@ onMounted(() => {
                     $smooth: props.smooth,
                     $areaGradient: props.areaGradient,
                     $instanceId: instanceId,
-                    $symbol: props.symbol
+                    $symbol: props.symbol,
+                    $focus: props.focus
                 })
 
                 if (!instanceId) {

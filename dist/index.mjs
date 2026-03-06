@@ -50352,24 +50352,25 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
   $smooth: u,
   $areaGradient: f,
   $symbol: c,
-  $instanceId: h
+  $focus: h,
+  $instanceId: v
 }) => {
-  const { $color: v, $grid: d, $tooltip: p, $vertical: g, $legend: y } = Sn(), m = { ...d }, _ = n || v.theme, x = [], b = [];
-  e.series.forEach((A, T) => {
-    const C = [];
-    A.data.forEach((L, P) => {
-      const R = a ? _[P] : _[T];
-      C.push({
-        value: L,
-        itemStyle: {
-          color: R
-        }
+  const { $color: d, $grid: p, $tooltip: g, $vertical: y, $legend: m } = Sn(), _ = { ...p }, x = n || d.theme, b = [], S = [];
+  e.series.forEach((T, C) => {
+    const M = [];
+    T.data.forEach((R, O) => {
+      const N = {
+        color: a ? x[O] : x[C]
+      };
+      M.push({
+        value: R,
+        itemStyle: N
       });
     });
-    let M = "rgba(0, 0, 0, 0)";
+    let I = "rgba(0, 0, 0, 0)";
     if (f) {
-      const L = zr(_[T], 1), P = zr(_[T], 0);
-      M = {
+      const R = zr(x[C], 1), O = zr(x[C], 0);
+      I = {
         type: "linear",
         x: 0,
         y: 0,
@@ -50378,30 +50379,32 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
         colorStops: [
           {
             offset: 0,
-            color: L
+            color: R
           },
           {
             offset: 1,
-            color: P
+            color: O
           }
         ]
       };
     }
-    b.push({
+    const L = {
       type: "line",
-      name: A.name,
-      data: C,
+      name: T.name,
+      data: M,
       smooth: u,
-      symbol: c,
       areaStyle: {
-        color: M
+        color: I
       }
-    });
-    const I = A.unit ? `（${A.unit}）` : "";
-    x.push(I);
+    };
+    h === !0 && (L.emphasis = {
+      focus: "series"
+    }), c === !1 && (L.symbol = "none"), S.push(L);
+    const P = T.unit ? `（${T.unit}）` : "";
+    b.push(P);
   });
-  let S = [];
-  if (l && (S = [
+  let w = [];
+  if (l && (w = [
     {
       show: !1,
       type: "slider",
@@ -50412,8 +50415,8 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
       show: !1
     }
   ]), i) {
-    const A = s || v.theme[0];
-    S = [
+    const T = s || d.theme[0];
+    w = [
       {
         show: !0,
         type: "slider",
@@ -50427,7 +50430,7 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
             color: "transparent"
           },
           areaStyle: {
-            color: A
+            color: T
           }
         },
         selectedDataBackground: {
@@ -50435,16 +50438,16 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
             color: "transparent"
           },
           areaStyle: {
-            color: A
+            color: T
           }
         },
-        borderColor: zr(A, 0.5),
+        borderColor: zr(T, 0.5),
         handleStyle: {
           color: "transparent",
-          borderColor: A
+          borderColor: T
         },
         moveHandleSize: 0,
-        fillerColor: zr(A, 0.2),
+        fillerColor: zr(T, 0.2),
         labelFormatter: () => "",
         height: 25,
         bottom: 10
@@ -50456,23 +50459,23 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
         moveOnMouseMove: !1,
         moveOnMouseWheel: !1
       }
-    ], m.bottom = 50;
+    ], _.bottom = 50;
   }
-  const w = {
-    color: _,
-    grid: m,
-    dataZoom: S,
+  const A = {
+    color: x,
+    grid: _,
+    dataZoom: w,
     tooltip: Object.assign(
       {
         trigger: "axis"
       },
-      p
+      g
     ),
-    legend: Object.assign({}, y),
+    legend: Object.assign({}, m),
     xAxis: [
-      Object.assign({ data: e.axis }, g.xAxis),
+      Object.assign({ data: e.axis }, y.xAxis),
       {
-        ...g.xAxis,
+        ...y.xAxis,
         axisLabel: {
           show: !1
         },
@@ -50486,16 +50489,16 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
     ],
     yAxis: [
       {
-        ...g.yAxis,
-        name: x[0]
+        ...y.yAxis,
+        name: b[0]
       },
       {
-        ...g.yAxis,
+        ...y.yAxis,
         show: !1,
-        name: x[1],
+        name: b[1],
         axisLabel: {
           show: !1,
-          color: v.yAxisLabel,
+          color: d.yAxisLabel,
           formatter: "{value} %"
         },
         splitLine: {
@@ -50503,9 +50506,9 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
         }
       }
     ],
-    series: b
+    series: S
   };
-  return Qt.render(r, Tr(t, w), h);
+  return console.log(555, A), Qt.render(r, Tr(t, A), v);
 }, Ldt = /* @__PURE__ */ Cr({
   __name: "component",
   props: {
@@ -50614,6 +50617,13 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
     symbol: {
       type: Boolean,
       default: !1
+    },
+    /**
+     * focus
+     */
+    focus: {
+      type: Boolean,
+      default: !1
     }
   },
   setup(r) {
@@ -50636,7 +50646,8 @@ const Tr = (r, t) => (Jvt(r, t), tdt(E.cloneDeep(r), E.cloneDeep(t))), edt = (r,
               $smooth: t.smooth,
               $areaGradient: t.areaGradient,
               $instanceId: a,
-              $symbol: t.symbol
+              $symbol: t.symbol,
+              $focus: t.focus
             });
             if (a || t.instance(o.instance), n = o.instance, a = o.instanceId, clearTimeout(i), t.carousel) {
               let s = 0, l = t.dataZoomNumber - 1;
